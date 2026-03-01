@@ -46,14 +46,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Logo / Site name — appears on right in RTL */}
-          <Link
-            href="/"
-            className="text-xl font-bold text-burgundy font-[family-name:var(--font-playfair)] tracking-wide"
-          >
-            {SITE.name}
-          </Link>
-
           {/* BS"D badge — top right (absolute) */}
           <span
             className="absolute top-1 end-4 text-xs text-charcoal-light font-semibold tracking-widest"

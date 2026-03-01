@@ -25,7 +25,7 @@ export default function ParallaxServices() {
           className="w-full h-full bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('/p4.jpeg')",
+              "url('/p5.jpeg')",
           }}
         />
         {/* Overlay */}
