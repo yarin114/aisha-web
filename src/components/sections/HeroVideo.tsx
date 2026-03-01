@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { WA_URL } from "@/config/site";
@@ -10,31 +9,14 @@ interface HeroVideoProps {
 }
 
 export default function HeroVideo({ onOpenQuestionnaire }: HeroVideoProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = true;
-    video.play().catch(() => {});
-  }, []);
-
   return (
     <section className="relative h-screen min-h-[600px] overflow-hidden flex items-center justify-center text-center">
-      {/* Background Video */}
-      <video
-        ref={videoRef}
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="/p7.jpeg"
-        preload="auto"
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/p7.jpeg')" }}
         aria-hidden="true"
-      >
-        <source src="/p7.mp4" type="video/mp4" />
-      </video>
+      />
 
       {/* Gradient overlay */}
       <div
