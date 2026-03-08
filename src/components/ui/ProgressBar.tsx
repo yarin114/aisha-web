@@ -21,6 +21,8 @@ export default function ProgressBar({ current, total }: ProgressBarProps) {
           aria-valuenow={current}
           aria-valuemin={1}
           aria-valuemax={total}
+          aria-label="התקדמות השאלון"
+          aria-valuetext={`שלב ${current} מתוך ${total}`}
         />
       </div>
     </div>

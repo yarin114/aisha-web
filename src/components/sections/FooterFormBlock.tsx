@@ -42,7 +42,7 @@ export default function FooterFormBlock() {
             </p>
 
             {/* Nav links */}
-            <nav className="flex flex-wrap gap-4">
+            <nav aria-label="קישורים ראשיים" className="flex flex-wrap gap-4">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
@@ -120,6 +120,9 @@ export default function FooterFormBlock() {
           <div className="flex gap-4">
             <a href="/privacy" className="hover:text-burgundy transition-colors">מדיניות פרטיות</a>
             <a href="/terms" className="hover:text-burgundy transition-colors">תנאי שימוש</a>
+            <Link href="/accessibility" className="hover:text-burgundy transition-colors">
+              הצהרת נגישות
+            </Link>
           </div>
         </div>
       </div>

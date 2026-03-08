@@ -49,11 +49,25 @@ export default function HorizontalCarousel() {
         </h2>
 
         {/* Embla viewport */}
-        <div ref={emblaRef} className="overflow-hidden rounded-2xl">
-          <div className="flex gap-4">
+        <div
+          ref={emblaRef}
+          className="overflow-hidden rounded-2xl"
+          role="region"
+          aria-label="גלריית תמונות – הרגעים שלנו"
+          aria-roledescription="carousel"
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft")  emblaApi?.scrollNext();
+            if (e.key === "ArrowRight") emblaApi?.scrollPrev();
+          }}
+          tabIndex={0}
+        >
+          <div className="flex gap-4" role="list">
             {CAROUSEL_IMAGES.map((img, i) => (
               <div
                 key={i}
+                role="listitem"
+                aria-label={`תמונה ${i + 1} מתוך ${CAROUSEL_IMAGES.length}: ${img.alt}`}
+                aria-roledescription="slide"
                 className="shrink-0 w-72 sm:w-80 h-64 sm:h-72 relative rounded-2xl overflow-hidden shadow-card"
               >
                 <Image
@@ -76,12 +90,12 @@ export default function HorizontalCarousel() {
             className="p-2 rounded-full border border-khaki hover:bg-burgundy hover:text-white hover:border-burgundy disabled:opacity-30 transition-colors"
             aria-label="הקודם"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={20} aria-hidden="true" />
           </button>
 
           {/* Dots */}
-          <div className="flex gap-1.5">
-            {CAROUSEL_IMAGES.map((_, i) => (
+          <div role="group" aria-label="בחר תמונה" className="flex gap-1.5">
+            {CAROUSEL_IMAGES.map((img, i) => (
               <button
                 key={i}
                 onClick={() => emblaApi?.scrollTo(i)}
@@ -91,7 +105,8 @@ export default function HorizontalCarousel() {
                     ? "w-5 h-2 bg-burgundy"
                     : "w-2 h-2 bg-khaki hover:bg-brown"
                 )}
-                aria-label={`תמונה ${i + 1}`}
+                aria-label={`${img.alt} – תמונה ${i + 1}`}
+                aria-current={i === selectedIndex ? "true" : undefined}
               />
             ))}
           </div>
@@ -102,7 +117,7 @@ export default function HorizontalCarousel() {
             className="p-2 rounded-full border border-khaki hover:bg-burgundy hover:text-white hover:border-burgundy disabled:opacity-30 transition-colors"
             aria-label="הבא"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={20} aria-hidden="true" />
           </button>
         </div>
       </div>

@@ -16,7 +16,11 @@
   --color-charcoal-light:#4A4A4A;
   --color-khaki:         #C8B89A;
   --color-khaki-light:   #DDD0BC;
+  /* WARNING: gold passes only for large text (24px+) or decorative use.
+     Contrast on cream = 2.45:1 — fails WCAG AA for normal-weight body text. */
   --color-gold:          #B8975A;
+  /* WARNING: khaki tokens are for borders, backgrounds, and decorative elements only.
+     Contrast on cream = 1.76:1 — never use as a text color. */
   --color-white:         #FFFFFF;
 
   /* Fonts */

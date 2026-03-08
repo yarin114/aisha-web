@@ -31,7 +31,7 @@ export default function ServicesAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 px-4 bg-cream">
+    <section className="py-16 px-4 bg-cream" aria-labelledby="services-heading">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function ServicesAccordion() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-charcoal mb-3">
+          <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-charcoal mb-3">
             מה אנחנו מציעים?
           </h2>
           <p className="text-charcoal-light text-lg">
@@ -48,10 +48,11 @@ export default function ServicesAccordion() {
           </p>
         </motion.div>
 
-        <div className="bg-white rounded-3xl shadow-card p-2 sm:p-4">
+        <div className="bg-white rounded-3xl shadow-card p-2 sm:p-4" role="list">
           {ACCORDION_ITEMS.map((item, i) => (
             <AccordionItem
               key={i}
+              id={String(i)}
               question={item.question}
               answer={item.answer}
               isOpen={openIndex === i}

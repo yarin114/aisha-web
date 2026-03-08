@@ -39,6 +39,11 @@ export default function QuestionnaireModal({ isOpen, onClose }: QuestionnaireMod
     <Modal isOpen={isOpen} onClose={onClose} title="מצאו את האירוע המושלם שלכם">
       <ProgressBar current={currentStep} total={totalSteps} />
 
+      {/* Screen-reader announcement for step transitions */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {`שלב ${currentStep} מתוך ${totalSteps}: ${stepConfig.question}`}
+      </div>
+
       {/* Step content with slide animation */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -67,6 +72,7 @@ export default function QuestionnaireModal({ isOpen, onClose }: QuestionnaireMod
         {currentStep > 1 ? (
           <button
             onClick={goBack}
+            aria-label={`חזור לשלב ${currentStep - 1}`}
             className="flex items-center gap-1 text-charcoal-light hover:text-burgundy transition-colors text-sm font-medium"
           >
             <ChevronRight size={16} className="rtl:rotate-0 ltr:rotate-180" aria-hidden="true" />

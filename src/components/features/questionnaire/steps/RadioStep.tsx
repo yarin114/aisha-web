@@ -13,8 +13,10 @@ interface RadioStepProps {
 export default function RadioStep({ question, options, value, onChange, error }: RadioStepProps) {
   return (
     <div>
-      <p className="text-lg font-semibold text-charcoal mb-6 text-center">{question}</p>
-      <div className="flex flex-col gap-3">
+      <p id="radio-question" className="text-lg font-semibold text-charcoal mb-6 text-center">
+        {question}
+      </p>
+      <div role="radiogroup" aria-labelledby="radio-question" className="flex flex-col gap-3">
         {options.map((option) => (
           <button
             key={option}
@@ -33,7 +35,11 @@ export default function RadioStep({ question, options, value, onChange, error }:
           </button>
         ))}
       </div>
-      {error && <p className="text-red-500 text-sm mt-3 text-center">{error}</p>}
+      {error && (
+        <p role="alert" className="text-red-500 text-sm mt-3 text-center">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
