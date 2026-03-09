@@ -20,6 +20,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={ref}
           id={id}
+          suppressHydrationWarning
           className={clsx(
             "w-full px-4 py-3 rounded-xl border bg-white text-charcoal text-start placeholder:text-charcoal-light/50 transition-colors duration-150",
             "focus:outline-none focus:ring-2 focus:ring-burgundy/40 focus:border-burgundy",
