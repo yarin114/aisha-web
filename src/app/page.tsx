@@ -1,46 +1,41 @@
-"use client";
-
-import { useState } from "react";
-import HeroVideo from "@/components/sections/HeroVideo";
-import ImageTrio from "@/components/sections/ImageTrio";
-import LeadMagnetBand from "@/components/sections/LeadMagnetBand";
-import ParallaxServices from "@/components/sections/ParallaxServices";
-import ServicesAccordion from "@/components/sections/ServicesAccordion";
-import HorizontalCarousel from "@/components/sections/HorizontalCarousel";
-import FooterFormBlock from "@/components/sections/FooterFormBlock";
-import QuestionnaireModal from "@/components/features/questionnaire/QuestionnaireModal";
+import LandingHero from "@/components/landing/LandingHero";
+import ArchGallery from "@/components/landing/ArchGallery";
+import VideoGrid from "@/components/landing/VideoGrid";
+import ValueStack from "@/components/landing/ValueStack";
+import PriceSection from "@/components/landing/PriceSection";
+import AddonsSection from "@/components/landing/AddonsSection";
+import ChallahSection from "@/components/landing/ChallahSection";
+import FinalCTA from "@/components/landing/FinalCTA";
+import LandingFooter from "@/components/landing/LandingFooter";
 
 export default function HomePage() {
-  const [isQuestionnaireOpen, setIsQuestionnaireOpen] = useState(false);
-
   return (
-    <>
-      {/* Block 1 — Hero Video */}
-      <HeroVideo onOpenQuestionnaire={() => setIsQuestionnaireOpen(true)} />
+    <div className="bg-sand">
+      {/* Hero — video, brand, big promise */}
+      <LandingHero />
 
-      {/* Block 2 — Image Trio */}
-      <ImageTrio />
+      {/* Gallery — Moroccan arch cards */}
+      <ArchGallery />
 
-      {/* Block 3 — Lead Magnet Band */}
-      <LeadMagnetBand onOpenQuestionnaire={() => setIsQuestionnaireOpen(true)} />
+      {/* Videos from real events */}
+      <VideoGrid />
 
-      {/* Block 4 — Parallax Services */}
-      <ParallaxServices />
+      {/* Base package value stack */}
+      <ValueStack />
 
-      {/* Block 5 — Services Accordion */}
-      <ServicesAccordion />
+      {/* Price + limited promo */}
+      <PriceSection />
 
-      {/* Block 6 — Horizontal Carousel */}
-      <HorizontalCarousel />
+      {/* Add-ons */}
+      <AddonsSection />
 
-      {/* Block 7 — Footer + Contact Form */}
-      <FooterFormBlock />
+      {/* Challah ceremony service */}
+      <ChallahSection />
 
-      {/* Questionnaire Modal (triggered from blocks 1 & 3) */}
-      <QuestionnaireModal
-        isOpen={isQuestionnaireOpen}
-        onClose={() => setIsQuestionnaireOpen(false)}
-      />
-    </>
+      {/* Final CTA — WhatsApp */}
+      <FinalCTA />
+
+      <LandingFooter />
+    </div>
   );
 }

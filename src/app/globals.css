@@ -23,9 +23,19 @@
      Contrast on cream = 1.76:1 — never use as a text color. */
   --color-white:         #FFFFFF;
 
+  /* Landing palette — henna sales page */
+  --color-henna:         #5E1B26;
+  --color-henna-deep:    #3D1019;
+  --color-gold-bright:   #C9A227;
+  --color-gold-soft:     #E3C86B;
+  --color-sand:          #F6EEDF;
+  --color-sand-deep:     #EEDFC5;
+  --color-ink:           #2A1418;
+
   /* Fonts */
   --font-hebrew:   'Heebo', 'Arial', sans-serif;
   --font-display:  'Playfair Display', 'Georgia', serif;
+  --font-frank:    var(--font-frank-ruhl), 'Georgia', serif;
 
   /* Radii */
   --radius-arch:   50% 50% 0 0 / 100% 100% 0 0;
@@ -76,6 +86,27 @@ body.large-cursor * {
 .arch-top {
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   overflow: hidden;
+}
+
+/* ============================================================
+   UTILITY — Arch frame (landing gallery cards)
+   Moroccan arch: rounded top, white frame, thin gold outline
+   ============================================================ */
+.arch-frame {
+  position: relative;
+  border-radius: 200px 200px 18px 18px;
+  overflow: hidden;
+  background: var(--color-sand-deep);
+  box-shadow: 0 18px 40px rgba(61, 16, 25, 0.18);
+  border: 6px solid var(--color-white);
+  outline: 1.5px solid var(--color-gold-bright);
+  outline-offset: 4px;
+}
+.arch-frame img {
+  transition: transform 0.6s ease;
+}
+.arch-frame:hover img {
+  transform: scale(1.05);
 }
 
 /* ============================================================

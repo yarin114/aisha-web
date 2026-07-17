@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Heebo, Playfair_Display } from "next/font/google";
+import { Heebo, Playfair_Display, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import FloatingWhatsApp from "@/components/global/FloatingWhatsApp";
@@ -20,13 +20,20 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const frankRuhl = Frank_Ruhl_Libre({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "700", "900"],
+  variable: "--font-frank-ruhl",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Aisha Boutique Events | חינה והפרשת חלה יוקרתית",
     template: "%s | Aisha Boutique Events",
   },
   description:
-    "חינה יוקרתית, צבעונית ושמחה – בלי שתצטרכו לדאוג לכלום. אירועי חינה והפרשת חלה מקצועיים עם עיצוב מושלם.",
+    "הפקת חינה מרוקאית אותנטית ומלאת יוקרה — תפאורה שלמה, ליווי אישי, וראש שקט לאורך כל האירוע. חבילה מלאה במחיר אחד.",
   keywords: ["חינה", "הפרשת חלה", "אירוע חינה", "עיצוב אירועים", "Aisha Boutique Events"],
   openGraph: {
     type: "website",
@@ -40,7 +47,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${playfair.variable}`}>
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${playfair.variable} ${frankRuhl.variable}`}>
       <body className="font-[family-name:var(--font-heebo)] bg-cream text-charcoal antialiased">
         <ConsentProvider>
           <AccessibilityProvider>

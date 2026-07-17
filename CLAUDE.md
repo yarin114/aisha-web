@@ -4,11 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Location
 
-All source code lives in `aisha-boutique-events/`. The workspace root (`Aisha- web/`) contains only this subdirectory.
-
-```
-cd "c:/Users/mazri/OneDrive/Desktop/Aisha- web/aisha-boutique-events"
-```
+All source code lives at the workspace root (`Aisha- web/`). The `aisha-boutique-events/` subdirectory is a leftover empty folder from an earlier layout.
 
 ## Commands
 
@@ -23,7 +19,7 @@ No test suite is configured.
 ## Architecture
 
 **Next.js 16 App Router** with three routes:
-- `/` — Home: hero, gallery trio, services, questionnaire modal
+- `/` — Sales landing page: video hero, arch gallery, video grid, value stack, price + limited promo, add-ons, challah section, WhatsApp CTA. Sections live in `src/components/landing/`. (Older business-site sections in `src/components/sections/` are no longer used on the home page.)
 - `/gallery` — Masonry photo album + lightbox
 - `/book` — Google Calendar embed
 
@@ -67,9 +63,11 @@ Google Calendar booking URL in `.env.local` as `NEXT_PUBLIC_CALENDAR_URL`.
 
 ## Assets
 
-Public assets in `aisha-boutique-events/public/`:
-- Images: `p1.jpeg`–`p7.jpeg` (portrait orientation, used in gallery and hero)
-- Videos: `v1.mp4`–`v4.mp4` (hero background)
+Public assets in `public/`:
+- Images: `p1.jpeg`–`p7.jpeg` (portrait orientation, used in gallery)
+- Videos: `v1.mp4`–`v4.mp4` (legacy hero background)
+- `henna/henna-1.jpeg`–`henna-5.jpeg` + `henna/henna-v1.mp4`–`henna-v6.mp4` — landing page gallery/videos (hero uses `henna-v1.mp4`)
+- `halla/halla-1.jpeg`–`halla-6.jpeg` — challah-ceremony section images
 
 ## Accessibility
 
